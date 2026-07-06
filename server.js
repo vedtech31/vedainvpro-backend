@@ -842,6 +842,11 @@ app.get('/admin', (req, res) => {
   `);
 });
 
+// Landing page message
+app.get('/', (req, res) => {
+  res.send('VEDAINVPRO Backend Server is running successfully!');
+});
+
 app.listen(port, () => {
   console.log(`Backend server running at http://localhost:${port}`);
 });
