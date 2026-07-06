@@ -6,8 +6,8 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const app = express();
-const port = 3000; // You can choose any available port
-const SECRET_KEY = 'VEDA_INV_PRO_SECRET_KEY'; // Change this in production!
+const port = process.env.PORT || 3000; // Bind dynamically for Render
+const SECRET_KEY = process.env.JWT_SECRET || 'VEDA_INV_PRO_SECRET_KEY';
 
 // Middleware to parse JSON bodies and enable CORS
 app.use(cors());
