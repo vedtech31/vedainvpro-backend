@@ -25,6 +25,14 @@ if not exist .git (
 echo [INFO] Adding files to commit...
 git add .
 
+:: Check if git author is configured
+git config user.email >nul 2>nul
+if %errorlevel% neq 0 (
+    echo [INFO] Git identity not found. Setting local repository fallback...
+    git config user.name "vedtech31"
+    git config user.email "contact@vedtech.in"
+)
+
 :: Commit
 echo [INFO] Committing files...
 git commit -m "Initial commit: VEDAINVPRO Backend"
